@@ -19,18 +19,11 @@ app.get('/notes', (req, res) => {
 });
 
 // /* for all other routes display the main index page
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-app.post('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/index.html'));
-});
 
 app.listen(PORT, () =>
-  console.log(`Date now: ${Date.now()} 
-  Date now hex: ${Date.now().toString(16)}
-  Date now hex substring 1: ${Date.now().toString(16).substring(1)}
-
-  App listening at http://localhost:${PORT} 🚀`)
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
