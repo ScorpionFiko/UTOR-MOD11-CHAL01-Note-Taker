@@ -17,13 +17,12 @@ notes.get('/', (req, res) => {
 
 // POST Route for submitting feedback
 notes.post('/', (req, res) => {
-    console.log(uuid);
-    const { title, text } = req.body;
+    const { title, text, id } = req.body;
     if (title && text) {
         readAndAppend({
             title: title,
             text: text,
-            id: uuid,
+            id: (id) ? id : uuid(),
         }, db);
         res.status(201).json({ status: 'success' });
     } else {
@@ -31,9 +30,11 @@ notes.post('/', (req, res) => {
     }
 });
 
-notes.post('/:note_id', (req, res) => {
-
-    res.send(`method: ${req.method}; path: ${req.path}; param: ${req.params.note_id}`)
+notes.delete('/:note_id', (req, res) => {
+    const { note_id } = req.params;
+    if (note_id) {
+        readAndDelete(note_id, db);
+    }
 });
 
 

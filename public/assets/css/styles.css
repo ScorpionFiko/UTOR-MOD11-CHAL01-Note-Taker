@@ -29,9 +29,9 @@ body {
   height: calc(100% - 63px);
   padding-top: 15px;
 }
-
+/* updated height to 4.5rem (font-size * 1.5) to ensure tops of bottoms of words are not cut off */
 .note-title {
-  height: 50px;
+  height: 4.5rem;
   margin-top: 13px;
   font-size: 3rem;
 }

@@ -31,7 +31,9 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then((data) => {return data}).catch();
+  })
+  .then((data) => { return data })
+  .catch((err) => {console.error(err)});
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -40,9 +42,9 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  }).then((response) => {
-    return response.ok;
-  }).catch();
+  })
+  .then((response) => { return response.ok; })
+  .catch((err) => {console.error(err)});
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -50,19 +52,18 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then().catch();
+  })
+  .then((response) => { return response.ok; })
+  .catch((err) => {console.error(err)});
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
+  // removed the setting and removal of the "readonly" attribute to allow user to edit existing note
   if (activeNote.id) {
-    noteTitle.setAttribute('readonly', true);
-    noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-    noteTitle.removeAttribute('readonly');
-    noteText.removeAttribute('readonly');
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -72,10 +73,12 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: activeNote.id
   };
+
+  // the call to renderActiveNote(); is redundant as getAndRenderNotes has it as a final step 
   saveNote(newNote).then(() => {
     getAndRenderNotes();
-    renderActiveNote();
   });
 };
 
@@ -91,9 +94,9 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
+  // the call to renderActiveNote(); is redundant as getAndRenderNotes has it as a final step 
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
-    renderActiveNote();
   });
 };
 
@@ -124,6 +127,8 @@ const renderNoteList = async (notes) => {
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
+  console.log("active note" + activeNote);
+
 
   let noteListItems = [];
 
@@ -161,6 +166,10 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
+    // new if statement to ensure the active note (if one exists) has the updated information from storage
+    if (note.id === activeNote.id) {
+      activeNote = note;
+    }
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
 
@@ -173,7 +182,8 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+// updating the function to include render of the note AFTER the all notes are received from storage
+const getAndRenderNotes = () => getNotes().then(renderNoteList).then(renderActiveNote);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);

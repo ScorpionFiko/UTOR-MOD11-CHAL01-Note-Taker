@@ -28,5 +28,9 @@ app.post('/*', (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
+  console.log(`Date now: ${Date.now()} 
+  Date now hex: ${Date.now().toString(16)}
+  Date now hex substring 1: ${Date.now().toString(16).substring(1)}
+
+  App listening at http://localhost:${PORT} 🚀`)
 );

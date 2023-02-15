@@ -25,22 +25,31 @@ const readAndAppend = (content, file) => {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
-      parsedData.push(content);
+      // updated code block to check if the user is adding a new note or updating existing note
+      const elementIndex = parsedData.findIndex(element=> element.id === content.id);
+      if (elementIndex === -1) {
+        // adds new array element
+        parsedData.push(content);
+      } else {
+        // update existing data
+        parsedData.splice(elementIndex,1,content);
+      }
       writeToFile(file, parsedData);
     }
   });
 };
 
-const readAndDelete = (content, file) => {
+const readAndDelete = (note_id, file) => {
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
-      console.log(parsedData.Indexof((element)=> {element.id === content})
-      );
-
-
+      const elementIndex = parsedData.findIndex(element=> element.id === note_id);
+      if (elementIndex !== -1) {
+        // update existing data
+        parsedData.splice(elementIndex,1);
+      }
       writeToFile(file, parsedData);
     }
   });

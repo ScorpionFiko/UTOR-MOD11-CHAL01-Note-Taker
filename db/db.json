@@ -1,20 +1,42 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": "8734"
+        "title": "Check Heroku",
+        "text": "Check heroky for the credits before deploying the appliction.",
+        "id": "186573c2b20"
     },
     {
-        "title": "Title",
-        "text": "text",
-        "id": "7842"
+        "title": "attend office hours ",
+        "text": "attend office hours where I can ask questions about heroku",
+        "id": "186573cc942"
     },
     {
-        "title": "testing hex",
-        "text": "testing hex"
+        "title": "check for debian upgrades",
+        "text": "check for upgrades to debian 12 as there is no support for an archive package\nThis may dependent upon my upload to heroku",
+        "id": "186573d3fc3"
     },
     {
-        "title": "test",
-        "text": "test"
+        "title": "attend class ",
+        "text": "to learn sql",
+        "id": "186573d6f7b"
+    },
+    {
+        "title": "have lunch",
+        "text": "rehead some left overs",
+        "id": "186573fc4d2"
+    },
+    {
+        "title": "attend afternoon classes",
+        "text": "AND LEARN MORE sqL",
+        "id": "186574202b3"
+    },
+    {
+        "title": "attend office hours ",
+        "text": "in case of heroku problems",
+        "id": "1865742432a"
+    },
+    {
+        "title": "relяx",
+        "text": "малко релаксация",
+        "id": "1865742bf81"
     }
 ]
