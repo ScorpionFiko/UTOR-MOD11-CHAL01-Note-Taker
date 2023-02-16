@@ -60,9 +60,9 @@ This file is considered the data storage for the application until moved to a da
 The front end of the application is done using Bootstrap. The website is fully responsive although on devices under 400px width, the note list can be moved to a hidden menu
 
 
-### Additional Functionality:
+### Note Editing:
 
-The original functionality of the application had a limit of not editing notes. This limitation has been removed and the user now can edit any existing notes. The order of the notes is also preserved.
+The original functionality of the application had a limit of not editing notes. This limitation has been removed and the user now can edit any existing notes. The order of the notes is also preserved. Codes in the comment explain what was done on the original code in order to ensure the update functionality works.
 
 
 ## Usage
@@ -101,6 +101,12 @@ N/A
 
 Please refer to the LICENSE in the repo.
 
+
+## Future Development
+
+These are some ideas about future development:
+1. Create "note menu" for devices under 400px in screen width
+2. Add days so that the user can access different notes for different calendar days
 
 
 
