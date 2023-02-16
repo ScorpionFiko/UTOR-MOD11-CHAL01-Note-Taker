@@ -4,7 +4,7 @@ University of Toronto - Module 11 - Challenge 01 - Note Taker
 ## Description
 
 Repository containing the code for the Note Taker application. This is an application that lets the user 
-- ADD notes: a title and body are required for saving
+- ADD new notes: a title and body are required before saving
 - UPDATE existing note: changes to the title or body are required before saving the updates
 - DELETE existing notes: no prerequisites needed. 
 
@@ -15,16 +15,16 @@ The application is made up of two separate html pages
 - notes page: where the user can create, update, or delete notes
 
 Below is the image of the application when the user lands on the page
-![Note Taker - Landing](./assets/images/RG-01-input.png)
+![Note Taker - Landing](./assets/images/NT-01-app-landing.png)
 
 Below is the image of the notes page with pre-existing notes list
-![Note Taker - Notes](./assets/images/RG-02-readme.png)
+![Note Taker - Notes](./assets/images/NT-02-note-landing.png)
 
 Below is the image of the notes page with pre-existing notes list and user adds a new note:
-![Note Taker - Notes - Add new note](./assets/images/RG-02-readme.png)
+![Note Taker - Notes - Add new note](./assets/images/NT-03-note-entry.png)
 
 Below is the image of the notes page with pre-existing notes list and user edits an existing note:
-![Note Taker - Notes - Edit existing note](./assets/images/RG-02-readme.png)
+![Note Taker - Notes - Edit existing note](./assets/images/NT-04-node-edit.png)
 
 
 ## Table of Contents
@@ -37,7 +37,7 @@ Below is the image of the notes page with pre-existing notes list and user edits
 
 ## Installation
 
-No special installation requirements are needed. Visit: HEROKU LINK to access the web application.
+No special installation requirements are needed. Visit https://stefans-note-taker.herokuapp.com/ to access the web application.
 
 
 ## Functionality
@@ -69,7 +69,7 @@ The original functionality of the application had a limit of not editing notes. 
 
 For accessing the application:<br>
 
-- go to HEROKU address
+- go to https://stefans-note-taker.herokuapp.com/
 - click on the "get started" button
 - to add a note:
     - enter title
@@ -108,6 +108,4 @@ These are some ideas about future development:
 1. Create "note menu" for devices under 400px in screen width
 2. Add days so that the user can access different notes for different calendar days
 3. Add a way to prioritize the tasks either based on importance or time sequence
-
-
 
