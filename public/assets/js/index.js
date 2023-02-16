@@ -14,12 +14,18 @@ if (window.location.pathname === '/notes') {
 
 // Show an element
 const show = (elem) => {
-  elem.style.display = 'inline';
+  // added check for the location so that no errors are thrown on the landing page
+  if (elem !== undefined) {
+    elem.style.display = 'inline'
+  };
 };
 
 // Hide an element
 const hide = (elem) => {
-  elem.style.display = 'none';
+  // added check for the location so that no errors are thrown on the landing page
+  if (elem !== undefined) {
+    elem.style.display = 'none'
+  };
 };
 
 // activeNote is used to keep track of the note in the textarea
@@ -60,12 +66,15 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   // removed the setting and removal of the "readonly" attribute to allow user to edit existing note
-  if (activeNote.id) {
-    noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text;
-  } else {
-    noteTitle.value = '';
-    noteText.value = '';
+  // added check for the location so that no errors are thrown on the landing page
+  if (window.location.pathname === '/notes') {
+    if (activeNote.id) {
+      noteTitle.value = activeNote.title;
+      noteText.value = activeNote.text;
+    } else {
+      noteTitle.value = '';
+      noteText.value = '';
+    }
   }
 };
 
