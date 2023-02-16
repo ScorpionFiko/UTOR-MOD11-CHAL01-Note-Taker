@@ -82,12 +82,12 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
-    id: activeNote.id
+    id: (activeNote.id)
   };
 
-  // the call to renderActiveNote(); is redundant as getAndRenderNotes has it as a final step 
+  // placing the call to renderActiveNote() in the then() to ensure all notes are retrieved first 
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
+    getAndRenderNotes().then(renderActiveNote);
   });
 };
 
@@ -103,9 +103,9 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  // the call to renderActiveNote(); is redundant as getAndRenderNotes has it as a final step 
+  // placing the call to renderActiveNote() in the then() to ensure all notes are retrieved first
   deleteNote(noteId).then(() => {
-    getAndRenderNotes();
+    getAndRenderNotes().then(renderActiveNote);
   });
 };
 
@@ -189,8 +189,7 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-// updating the function to include render of the note AFTER the all notes are received from storage
-const getAndRenderNotes = () => getNotes().then(renderNoteList).then(renderActiveNote);
+const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);

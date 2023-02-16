@@ -45,10 +45,13 @@ const readAndDelete = (note_id, file) => {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
+      console.log(parsedData);
       const elementIndex = parsedData.findIndex(element => element.id === note_id);
+      console.log(note_id);
       if (elementIndex !== -1) {
         // update existing data
         parsedData.splice(elementIndex, 1);
+        console.log(parsedData);
       }
       writeToFile(file, parsedData);
     }

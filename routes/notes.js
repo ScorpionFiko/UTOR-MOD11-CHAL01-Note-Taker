@@ -34,6 +34,9 @@ notes.delete('/:note_id', (req, res) => {
     const { note_id } = req.params;
     if (note_id) {
         readAndDelete(note_id, db);
+        res.status(201).json({ status: 'success' });
+    } else {
+        res.status(500).json('error posting feedback');
     }
 });
 
