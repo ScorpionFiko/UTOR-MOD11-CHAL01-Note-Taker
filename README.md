@@ -107,6 +107,7 @@ Please refer to the LICENSE in the repo.
 These are some ideas about future development:
 1. Create "note menu" for devices under 400px in screen width
 2. Add days so that the user can access different notes for different calendar days
+3. Add a way to prioritize the tasks either based on importance or time sequence
 
 
 
