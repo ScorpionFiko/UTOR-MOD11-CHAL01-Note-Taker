@@ -26,13 +26,13 @@ const readAndAppend = (content, file) => {
     } else {
       const parsedData = JSON.parse(data);
       // updated code block to check if the user is adding a new note or updating existing note
-      const elementIndex = parsedData.findIndex(element=> element.id === content.id);
+      const elementIndex = parsedData.findIndex(element => element.id === content.id);
       if (elementIndex === -1) {
         // adds new array element
         parsedData.push(content);
       } else {
         // update existing data
-        parsedData.splice(elementIndex,1,content);
+        parsedData.splice(elementIndex, 1, content);
       }
       writeToFile(file, parsedData);
     }
@@ -45,10 +45,10 @@ const readAndDelete = (note_id, file) => {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
-      const elementIndex = parsedData.findIndex(element=> element.id === note_id);
+      const elementIndex = parsedData.findIndex(element => element.id === note_id);
       if (elementIndex !== -1) {
         // update existing data
-        parsedData.splice(elementIndex,1);
+        parsedData.splice(elementIndex, 1);
       }
       writeToFile(file, parsedData);
     }

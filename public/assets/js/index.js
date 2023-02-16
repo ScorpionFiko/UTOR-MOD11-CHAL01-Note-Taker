@@ -32,8 +32,8 @@ const getNotes = () =>
       'Content-Type': 'application/json',
     },
   })
-  .then((data) => { return data })
-  .catch((err) => {console.error(err)});
+    .then((data) => { return data })
+    .catch((err) => { console.error(err) });
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -43,8 +43,8 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   })
-  .then((response) => { return response.ok; })
-  .catch((err) => {console.error(err)});
+    .then((response) => { return response.ok; })
+    .catch((err) => { console.error(err) });
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -53,8 +53,8 @@ const deleteNote = (id) =>
       'Content-Type': 'application/json',
     },
   })
-  .then((response) => { return response.ok; })
-  .catch((err) => {console.error(err)});
+    .then((response) => { return response.ok; })
+    .catch((err) => { console.error(err) });
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -127,8 +127,6 @@ const renderNoteList = async (notes) => {
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
-  console.log("active note" + activeNote);
-
 
   let noteListItems = [];
 
