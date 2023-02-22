@@ -2,10 +2,11 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/api.js');
 
-const PORT = process.env.PORT || 80;
-
+const PORT = process.env.PORT || 3001;
+const SERVER = process.env.SERVER || 'http://localhost';
 const app = express();
 
+app.set('base', SERVER);
 // middleware including the router
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,5 +26,5 @@ app.get('*', (req, res) => {
 
 
 app.listen(PORT, () =>
-  console.log(`App listening to port: ${PORT} 🚀`)
+  console.log(`App listening to port: ${SERVER}:${PORT} 🚀`)
 );
