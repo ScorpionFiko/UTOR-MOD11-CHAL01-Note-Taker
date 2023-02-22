@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/stefanma/apps/stefans-note-taker/
+    - export REPOPATH=/home/stefanma/repositories/UTOR-MOD11-CHAL01-Note-Taker/
+    - /bin/cp -R $REPOPATH/db $DEPLOYPATH
+    - /bin/cp -R $REPOPATH/public $DEPLOYPATH
+    - /bin/cp -R $REPOPATH/routes $DEPLOYPATH
+    - /bin/cp -R $REPOPATH/utils $DEPLOYPATH
+    - /bin/cp    $REPOPATH/package-lock.json $DEPLOYPATH
+    - /bin/cp    $REPOPATH/package.json $DEPLOYPATH
+    - /bin/cp    $REPOPATH/server.js $DEPLOYPATH
