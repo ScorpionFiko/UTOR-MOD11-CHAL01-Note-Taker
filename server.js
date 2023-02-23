@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/api.js');
 
-const PORT = process.env.PORT || 3001;
-const SERVER = process.env.SERVER || 'http://localhost';
+const PORT = process.env.PORT || 443;
+const SERVER = process.env.RACK_BASE_URI || 'http://localhost';
 console.log(process.env);
 
 const app = express();
