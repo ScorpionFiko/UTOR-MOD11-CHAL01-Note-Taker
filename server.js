@@ -17,7 +17,7 @@ app.use(express.static('public'));
 
 //routes
 // /notes for the entry to the notes page
-app.get('/notes', (req, res) => {
+app.get('/apps/stefans-note-taker/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
