@@ -4,6 +4,8 @@ const api = require('./routes/api.js');
 
 const PORT = process.env.PORT || 3001;
 const SERVER = process.env.SERVER || 'http://localhost';
+console.log(process.env);
+
 const app = express();
 
 app.set('base', SERVER);
