@@ -2,13 +2,12 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/api.js');
 
-const PORT = process.env.PORT || 443;
-const SERVER = process.env.RACK_BASE_URI || 'http://localhost';
+const PORT = process.env.PORT || 3001;
+
 console.log(process.env);
 
 const app = express();
 
-app.set('base', SERVER);
 // middleware including the router
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +16,7 @@ app.use(express.static('public'));
 
 //routes
 // /notes for the entry to the notes page
-app.get('/apps/stefans-note-taker/notes', (req, res) => {
+app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
@@ -28,5 +27,5 @@ app.get('*', (req, res) => {
 
 
 app.listen(PORT, () =>
-  console.log(`App listening to port: ${SERVER}:${PORT} 🚀`)
+  console.log(`App listening to port: ${PORT} 🚀`)
 );
